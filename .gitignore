@@ -7,3 +7,7 @@ logs
 
 # Environment variables
 .env
+.vercel
+
+# Local Netlify folder
+.netlify

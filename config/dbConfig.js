@@ -1,29 +1,31 @@
-import { Sequelize } from 'sequelize';
-import dotenv from 'dotenv';
+import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
 
 dotenv.config();
 
 const sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USERNAME,
-    process.env.DB_PASSWORD,
+    process.env.POSTGRES_DATABASE,
+    process.env.POSTGRES_USER,
+    process.env.POSTGRES_PASSWORD,
     {
-        host: process.env.DB_HOST,
-        dialect: process.env.DB_DIALECT,
+        host: process.env.POSTGRES_HOST,
+        dialect: "postgres", // explicitly set to 'postgres'
         dialectOptions: {
             ssl: {
-                require: true, // This will require SSL connection
-                rejectUnauthorized: false // Optional: set to false for testing locally or if you're using a self-signed certificate
+                require: true,
+                rejectUnauthorized: false // for testing or self-signed certificates
             }
         }
     }
 );
 
-try {
-    await sequelize.authenticate();
-    console.log('Database connected successfully');
-} catch (error) {
-    console.log("Some error occurred\n" + error);
-}
+(async () => {
+    try {
+        await sequelize.authenticate();
+        console.log("Database connected successfully");
+    } catch (error) {
+        console.log("Some error occurred\n" + error);
+    }
+})();
 
 export default sequelize;

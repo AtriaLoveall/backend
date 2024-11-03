@@ -2,12 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import http from 'http';
-import authRoute from './routes/authRoute.js';
-import userRoute from './routes/userRoute.js';
-import BRoute from './routes/BusinessAuthRoute.js';
+import authRoute from './authRoute.js';
+import userRoute from './userRoute.js';
+import BRoute from './BusinessAuthRoute.js';
 import rateLimit from 'express-rate-limit';
-import errorHandler from './middleware/errorHandler.js';
-import { authMiddleware } from './middleware/isAuthenticated.js';
+import errorHandler from './errorHandler.js';
+//import { authMiddleware } from './middleware/isAuthenticated.js';
 
 // Dotenv configuration
 dotenv.config();
