@@ -28,7 +28,7 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-// Routing setup
+// Routing setup.
 app.get('/test', (req, res) => {
     res.json({ message: "Hello World" });
 });

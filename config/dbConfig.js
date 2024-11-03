@@ -22,7 +22,7 @@ const sequelize = new Sequelize(
 (async () => {
     try {
         await sequelize.authenticate();
-        console.log("Database connected successfully");
+        console.log("PGDatabase connected successfully");
     } catch (error) {
         console.log("Some error occurred\n" + error);
     }
